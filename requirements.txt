@@ -1,0 +1,9 @@
+streamlit==1.36.0
+scikit-learn>=1.3.0,<1.6.0
+joblib>=1.3.0
+numpy>=1.24.0
+boto3>=1.34.0
+python-dotenv>=1.0.1
+openai>=1.40.0
+langfuse>=2.40.0
+certifi>=2024.7.4

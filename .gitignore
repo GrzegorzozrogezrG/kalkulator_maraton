@@ -1,0 +1,15 @@
+.env
+.conda/
+.vscode/
+__pycache__/
+*.pyc
+logs.log
+
+# Local run helpers
+run_streamlit.py
+sitecustomize.py
+
+# All model files — loaded from DO Spaces at runtime
+models/
+*.csv
+*.ipynb

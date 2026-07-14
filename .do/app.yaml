@@ -1,0 +1,47 @@
+name: halfmarathon-predictor
+services:
+  - name: web
+    github:
+      repo: GrzegorzozrogezrG/kalkulator_maraton
+      branch: main
+      deploy_on_push: true
+    source_dir: /
+    environment_slug: python
+    instance_count: 1
+    instance_size_slug: basic-xxs
+    http_port: 8501
+    run_command: streamlit run app.py --server.port 8501 --server.address 0.0.0.0
+    envs:
+      - key: OPENAI_API_KEY
+        scope: RUN_TIME
+        type: SECRET
+      - key: OPENAI_MODEL
+        scope: RUN_TIME
+        value: gpt-4o-mini
+      - key: LANGFUSE_PUBLIC_KEY
+        scope: RUN_TIME
+        type: SECRET
+      - key: LANGFUSE_SECRET_KEY
+        scope: RUN_TIME
+        type: SECRET
+      - key: LANGFUSE_BASE_URL
+        scope: RUN_TIME
+        value: https://cloud.langfuse.com
+      - key: DO_SPACES_ENDPOINT
+        scope: RUN_TIME
+        type: SECRET
+      - key: DO_SPACES_REGION
+        scope: RUN_TIME
+        value: fra1
+      - key: DO_SPACES_BUCKET
+        scope: RUN_TIME
+        type: SECRET
+      - key: DO_SPACES_ACCESS_KEY
+        scope: RUN_TIME
+        type: SECRET
+      - key: DO_SPACES_SECRET_KEY
+        scope: RUN_TIME
+        type: SECRET
+      - key: DO_SPACES_MODEL_PREFIX
+        scope: RUN_TIME
+        value: models/
